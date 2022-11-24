@@ -44,7 +44,7 @@
 
 <div class="AddProduct">
 <?php
-    $_name = ''; // varibler 
+    $_name = ''; // variabler 
     $_price = '';
     $_productdetails = '';
     $_Picture = '';
