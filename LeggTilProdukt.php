@@ -44,15 +44,15 @@
 
 <div class="AddProduct">
 <?php
-    $_name = '';
+    $_name = ''; // varibler 
     $_price = '';
     $_productdetails = '';
     $_Picture = '';
 
-    if(isset($_POST['save'])) {
+    if(isset($_POST['save'])) { // Hvis button med navnet "save" har blitt trukket skal variablen "ok" bli satt til true.
         $ok = true;
 
-        if(!isset($_POST['navn']) || $_POST['navn'] == '') {
+        if(!isset($_POST['navn']) || $_POST['navn'] == '') { // Deretter kjører vi if-statements som sjekker om inputfeltene navn, pris og detaljer ikke er satt eller tom, hvis det er det skal variablen "ok" settes til false ellers skal de ulike elementene bli satt i variablene de tilhører.
             $ok = false;
         } else {
             $_name = $_POST['navn'];
@@ -70,7 +70,7 @@
             $_productdetails = $_POST['details'];
         }
         
-        if($ok){
+        if($ok){ // Hvis variablen "ok" er true skal det lages en connection med databasen, der vi legger til nye elementene i mysql tabellen der Navn, Pris og Detaljer erstattes med de variablene som ble satt i koden ovenfor.
             $host = "localhost";
             $dbusername = "root";
             $dbpassword = "";
@@ -85,7 +85,7 @@
             $db->close();
         } else { 
         ?>
-        <div class="errormld">
+        <div class="errormld"> <!--Hvis variablen "ok" er satt til false skal det komme følgende error melding.-->
             <p>Error, your product has not been saved. Be sure that all inputfields are filled!</p>
         </div>
 
