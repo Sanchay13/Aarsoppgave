@@ -9,23 +9,23 @@
 </head>
 <body>
     <?php
-        $navn = '';
+        $navn = ''; // Variabler 
         $pris = '';
         $detaljer = '';
         $Edit = '';
 
-            $db = new mysqli(
+            $db = new mysqli( // Database connection
                 'localhost',
                 'root',
                 '',
                 'kantine');
 
-                if (isset ($_GET['Edit'])) {
-                    $Edit = (int) $_GET['Edit'];
-                    $sql = "SELECT * FROM product WHERE id = '$Edit'";
+                if (isset ($_GET['Edit'])) { // En if-statement som sjekker om lenken edit.php er satt om det er det skal følgende kode kjøres:
+                    $Edit = (int) $_GET['Edit']; // variabel som sender id til ny side i URL med parameter "Edit"
+                    $sql = "SELECT * FROM product WHERE id = '$Edit'"; // Variabel som henter id fra tabellen "product" i databasen hvor id er det sammen som den id i URL-en.
                     $result = $db->query($sql);
 
-                    foreach ($result as $row){
+                    foreach ($result as $row){ // For each loop som gjør om resultat som row 
                             
                             $navn = $row['Navn'];
                             $pris = $row['Pris'];
@@ -37,10 +37,10 @@
                     }
                 }
 
-                if(isset($_POST['save'])) {
+                if(isset($_POST['save'])) { // Hvis button med navnet "save" har blitt trukket skal variablen "ok" bli satt til true.
                     $ok = true;
             
-                    if(!isset($_POST['navn']) || $_POST['navn'] == '') {
+                    if(!isset($_POST['navn']) || $_POST['navn'] == '') { // Deretter kjører vi if-statements som sjekker om inputfeltene navn, pris og detaljer ikke er satt eller tom, hvis det er det skal variablen "ok" settes til false ellers skal de ulike elementene bli satt i variablene de tilhører.
                         $ok = false;
                     } else {
                         $navn = $_POST['navn'];
@@ -58,10 +58,10 @@
                         $detaljer = $_POST['details'];
                     }
 
-                    $sql = "UPDATE product SET Navn = '$navn', Pris = '$pris', Detaljer = '$detaljer'  WHERE id = '$Edit'";
+                    $sql = "UPDATE product SET Navn = '$navn', Pris = '$pris', Detaljer = '$detaljer'  WHERE id = '$Edit'"; // Denne koden oppdaterer de eksisterende innholdet i database tabellen.
                     $result = $db->query($sql);
 
-                    header("Location: ./VisAlleProdukter.php");
+                    header("Location: ./VisAlleProdukter.php"); // Sender deg til VisAlleProdukter filen, for at endringene skal vises.
                     exit();
                     
                 }
