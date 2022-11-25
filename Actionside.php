@@ -29,27 +29,27 @@
     </nav>
 
 <?php
-    $db = new mysqli( 
+    $db = new mysqli(  // Lager connection med databasen
     'localhost',
     'root',
     '',
     'kantine');
 
-    $sql = 'SELECT * FROM product';
+    $sql = 'SELECT * FROM product'; // Sql spørring som henter alt fra tabellen "product" i databasen
     $result = $db->query($sql);
 
-    if (isset($_POST['Sub'])) {
-    $search = mysqli_real_escape_string($db, $_POST['search']); 
-    $sql = "SELECT * FROM product WHERE Navn LIKE '%$search%'";
-    $result = $db->query($sql);
-    $queryResult = mysqli_num_rows($result);
+    if (isset($_POST['Sub'])) { // Hvis "button" med name "Sub" blir trykket skal følgende kode kjøres:
+    $search = mysqli_real_escape_string($db, $_POST['search']); // Dette er en variabel som passer på at det jeg søker på i Sql ikke er farlig kode (Det hindrer SQL injections)
+    $sql = "SELECT * FROM product WHERE Navn LIKE '%$search%'"; // Sql-spørring som henter alt fra tabellen "product" i databasen og sjekker om feltet Navn er lik søke resultatet mitt i input-feltet.
+    $result = $db->query($sql); // Dette sender inn resultat i SQl.
+    $queryResult = mysqli_num_rows($result); // msqli_num_rows returnerer nummeren av raden i et resultat set. (Antall rows)
     
     echo "<div class=\"txt\">";
     echo "<h1>There are ".$queryResult." results matching your search!</h1>";
     echo "</div>";
     }
 
-    if ($queryResult > 0){
+    if ($queryResult > 0){ // if-statement som sier at hvis det er fler enn 0 rader, så skal følgende kode kjøres: 
         echo "<div id=\"Productlist1\">";
         echo "<table>";
         echo "<tr>";
@@ -58,7 +58,7 @@
         echo "<th>Details</th>";
         echo "</tr>";
         
-        while($row = mysqli_fetch_assoc($result)){ 
+        while($row = mysqli_fetch_assoc($result)){ // en loop som vil fortsette til det er ingen flere rader i resultatet som er returnert fra Mysql databasen.
             echo "<tr>";
             echo "<td>";
             echo $row['Navn'];
