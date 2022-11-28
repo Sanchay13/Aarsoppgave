@@ -51,7 +51,7 @@
                     }  else { // ellers skal følgende feilmelding dukke opp.
                         ?>
                         <div class="errormld">
-                        <p>Wrong username/password combination</p>
+                        <p>Wrong username/password combination. Forgotten password? Please contact the main administrator</p>
                     </div>
             
                     <?php
