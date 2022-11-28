@@ -86,7 +86,7 @@
 
             $db = new mysqli($host, $dbusername, $dbpassword, $dbname);
 
-            $sql = "INSERT INTO admins (AdminID, password , email, Navn ) VALUES ('$_AdminID', '$_password', '$_email', '$_Navn');";
+            $sql = "INSERT INTO admin (AdminID, password , email, Navn ) VALUES ('$_AdminID', '$_password', '$_email', '$_Navn');";
             
             $db->query($sql);
 

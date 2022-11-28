@@ -38,7 +38,7 @@
             '',
             'kantine');
 
-        $sql = 'SELECT * FROM admins'; // Vi sender sql-spørringer om å hente alt fra tabellen "admins" i databasen.
+        $sql = 'SELECT * FROM admin'; // Vi sender sql-spørringer om å hente alt fra tabellen "admin" i databasen.
         $result = $db->query($sql);
             
         // Her er tabellen som skal vise alle produkter i databasen vår.
