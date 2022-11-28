@@ -97,6 +97,9 @@
             $db->query($sql);
 
             $db->close();
+
+            header("Location: ./ShowUsers.php");
+            exit();
         } else { 
         ?>
         <div class="errormld"> <!--Hvis variablen "ok" er satt til false skal det komme følgende error melding.-->
