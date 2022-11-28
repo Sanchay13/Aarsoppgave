@@ -190,11 +190,10 @@ border-bottom: 3px solid var(--primary);
 
 .menu a {
     color: #fff;
-    margin: 0 16px;
     font-weight: 600;
     text-decoration: none;
     transition:0.4s ;
-    padding: 8px 16px;
+    padding: 8px 21px;
     border-radius: 99px;
 }
 /* meny kode avsluttes  */
