@@ -48,7 +48,12 @@
                         header('Location: AdminForside.php');
                         die();
                     }  else {
-                        echo "Wrong username/password combination";
+                        ?>
+                        <div class="errormld">
+                        <p>Wrong username/password combination</p>
+                    </div>
+            
+                    <?php
                     }
                 }
             

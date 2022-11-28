@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Vis Alle Produkter</title>
+    <title>Show products</title>
 </head>
 <body>
 <nav>
@@ -18,14 +18,8 @@
             <a href="SearchProducts.php">Search products</a>
             <a href="LeggTilProdukt.php">Add products</a>
             <a href="Admin.php">Add-users</a>
+            <a href="ShowUsers.php">All-users</a>
             <a href="logut.php">Log out</a>
-        </div>
-
-        <button class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
         </div>
 </nav>
 

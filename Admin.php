@@ -18,14 +18,8 @@
             <a href="SearchProducts.php">Search products</a>
             <a href="LeggTilProdukt.php">Add products</a>
             <a href="Admin.php">Add-users</a>
+            <a href="ShowUsers.php">All-users</a>
             <a href="logut.php">Log out</a>
-        </div>
-
-        <button class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
         </div>
 </nav>
         
