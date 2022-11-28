@@ -34,7 +34,7 @@
         <form action="" method="post" autocomplete="off">
             <input class="Inputtext" placeholder="AdminID" type="text" name="AdminID" id="">
             <input class="Inputtext" placeholder="Password" type="password" name="password" id="">
-            <input class="Inputtext" placeholder="Email" type="text" name="Email" id="">
+            <input class="Inputtext" placeholder="Email" type="email" name="Email" id="">
             <input class="Inputtext" placeholder="Navn" type="text" name="Navn" id="">
 
             <br>
