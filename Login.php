@@ -37,11 +37,18 @@
                 $username = mysqli_real_escape_string($db, $_POST['username']); //Setter sql injections
                 $password = mysqli_real_escape_string($db, $_POST['password']);
 
-                // $Hashedpwd = password_hash($password, PASSWORD_DEFAULT);
-                // $db->query = ("INSERT INTO admin (AdminID, password) VALUES ('$username', $Hashedpwd'");
-
                     $query = "SELECT * FROM admin WHERE AdminID='$username' AND password='$password'"; //Henter alt fra tabellen "admin" der adminID = username variablen og password er password variablen.
                     $results = mysqli_query($db, $query);
+
+                    // $Hashedpwd = password_hash($password, PASSWORD_DEFAULT);
+                    // $checkedPwd = password_verify($password, $Hashedpwd);
+    
+                    // if($checkedPwd === false) {
+                    //     header('Location: Login.php');
+                    // } else if($checkedPwd === true) {
+                    //     header('Location: index.html');
+                    // }
+
                     
                     if (mysqli_num_rows($results) == 1) { // Hvis brukernavn og passord matcher det som er i databasen skal session starte og logon skal bli satt til true.
                         session_start();

@@ -86,7 +86,10 @@
 
             $db = new mysqli($host, $dbusername, $dbpassword, $dbname);
 
-            $sql = "INSERT INTO admin (AdminID, password , email, Navn ) VALUES ('$_AdminID', '$_password', '$_email', '$_Navn');";
+            $Hashedpwd = password_hash($_password, PASSWORD_DEFAULT);
+
+            $sql = "INSERT INTO admin (AdminID, password , email, Navn ) VALUES ('$_AdminID', '$Hashedpwd', '$_email', '$_Navn');";
+
             
             $db->query($sql);
 
