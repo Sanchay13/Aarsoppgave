@@ -89,7 +89,6 @@
             $Hashedpwd = password_hash($_password, PASSWORD_DEFAULT);
 
             $sql = "INSERT INTO admin (AdminID, password , email, Navn ) VALUES ('$_AdminID', '$Hashedpwd', '$_email', '$_Navn');";
-
             
             $db->query($sql);
 
