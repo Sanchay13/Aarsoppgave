@@ -38,7 +38,7 @@
                 $password = mysqli_real_escape_string($db, $_POST['password']);
 
                 // $Hashedpwd = password_hash($password, PASSWORD_DEFAULT);
-                // $db->query = ("INSERT INTO admins (AdminID, password) VALUES ('$username', $Hashedpwd'");
+                // $db->query = ("INSERT INTO admin (AdminID, password) VALUES ('$username', $Hashedpwd'");
 
                     $query = "SELECT * FROM admin WHERE AdminID='$username' AND password='$password'"; //Henter alt fra tabellen "admin" der adminID = username variablen og password er password variablen.
                     $results = mysqli_query($db, $query);
