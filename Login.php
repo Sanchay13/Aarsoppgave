@@ -51,7 +51,7 @@
                         } else if($checkedPwd === false){
                         ?>
                         <div class="errormld">
-                        <p>Wrong username/password combination. Forgotten password? Please contact the main administrator</p>
+                        <p>Wrong username/password combination.</p>
                         </div>
                         <?php
                         }
