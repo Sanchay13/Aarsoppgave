@@ -12,7 +12,6 @@
         <h1>Log in</h1>
     </div>
     
-    
     <div class="skrivInn">
         <form method="post" action="" autocomplete="off">
             <br>
