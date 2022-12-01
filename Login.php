@@ -43,17 +43,24 @@
                 if($result -> num_rows > 0){
                     while($row = $result -> fetch_assoc()){
                         session_start();
+                        $Navn = $row['Navn'];
                         $dbPwd = $row['password'];
+                        $_SESSION['Username'] = $Navn;
                         $checkedPwd = password_verify($password, $dbPwd);
                         if ($checkedPwd === true){
                             $_SESSION['logon'] = true;
+                            $admin = $row['status'];
+                        if($admin == 1){
+                            header('Location: BossPage.php');
+                        } else{
                             header('Location: AdminForside.php');
+                        }
                         } else if($checkedPwd === false){
                         ?>
                         <div class="errormld">
                         <p>Wrong username/password combination.</p>
                         </div>
-                        <?php
+                    <?php
                         }
                     }
                 }

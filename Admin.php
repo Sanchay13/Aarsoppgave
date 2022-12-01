@@ -13,10 +13,7 @@
         <h1>Kuben kantine</h1>
 
         <div class="menu">
-            <a href="AdminForside.php">Home</a>
-            <a href="VisAlleProdukter.php">Show products</a>
-            <a href="SearchProducts.php">Search products</a>
-            <a href="LeggTilProdukt.php">Add products</a>
+            <a href="BossPage.php">Home</a>
             <a href="Admin.php">Add-users</a>
             <a href="ShowUsers.php">All-users</a>
             <a href="logut.php">Log out</a>
@@ -31,7 +28,8 @@
             <input class="Inputtext" placeholder="Password" type="password" name="password" id="">
             <input class="Inputtext" placeholder="Email" type="email" name="Email" id="">
             <input class="Inputtext" placeholder="Navn" type="text" name="Navn" id="">
-
+            <input class="Inputtext" placeholder="AdminValue" type="number" name="Value" id="">
+            
             <br>
             <input type="submit" id="submit" name="save" value="Save">
         </form>
@@ -77,6 +75,12 @@
         } else {
             $_Navn = $_POST['Navn'];
         }
+
+        if(!isset($_POST['Value']) || $_POST['Value'] == '') {
+            $ok = false;
+        } else {
+            $_Value = $_POST['Value'];
+        }
         
         if($ok){ // Hvis variablen "ok" er true skal det lages en connection med databasen, der vi legger til nye elementene i mysql tabellen der AdminID, Password, email og Navn erstattes med de variablene som ble satt i koden ovenfor.
             $host = "localhost";
@@ -88,7 +92,7 @@
 
             $Hashedpwd = password_hash($_password, PASSWORD_DEFAULT);
 
-            $sql = "INSERT INTO admin (AdminID, password , email, Navn ) VALUES ('$_AdminID', '$Hashedpwd', '$_email', '$_Navn');";
+            $sql = "INSERT INTO admin (AdminID, password , email, Navn, status ) VALUES ('$_AdminID', '$Hashedpwd', '$_email', '$_Navn', '$_Value');";
             
             $db->query($sql);
 

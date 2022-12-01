@@ -13,10 +13,7 @@
         <h1>Kuben kantine</h1>
 
         <div class="menu">
-            <a href="AdminForside.php">Home</a>
-            <a href="VisAlleProdukter.php">Show products</a>
-            <a href="SearchProducts.php">Search products</a>
-            <a href="LeggTilProdukt.php">Add products</a>
+            <a href="BossPage.php">Home</a>
             <a href="Admin.php">Add-users</a>
             <a href="ShowUsers.php">All-users</a>
             <a href="logut.php">Log out</a>
@@ -40,21 +37,38 @@
 
         $sql = 'SELECT * FROM admin'; // Vi sender sql-spørringer om å hente alt fra tabellen "admin" i databasen.
         $result = $db->query($sql);
+
+        if (isset ($_GET['delete_id'])) { // En if-statement som sjekker om lenken delete_id er satt om det er det skal følgende kode kjøres:
+            $delete_id = (int) $_GET['delete_id']; // variabel som sender id til samme side i URL med parameter "delete id"
+            $deletesql = "DELETE FROM admin WHERE id = '$delete_id'"; // Variabel som sletter id fra tabellen "product" i databasen hvor id er det sammen som den id i URL-en.
+            $deleteresult = $db->query($deletesql);
+
+            header("Location: ./ShowUsers.php"); // Når delete-lenken blir trukket skal nett-siden refreshe, slik at den produkten som blir slettet skal bli borte fra siden. 
+            exit();
+        }
             
         // Her er tabellen som skal vise alle produkter i databasen vår.
         echo "<table>
         <tr>
+        <th>Id</th>
         <th>AdminID</th>
         <th>Email</th>
+        <th>Password</th>
         <th>Navn</th>
+        <th>Status</th>
+        <th>Delete</th>
         </tr>";
         
         // Vi lager en foreach loop som gjør om variabelen resultat om til row. For hver gang et produkt blir lagt til vil foreach loopen gjøre at tabellen oppdateres.
         foreach ($result as $row){
             echo "<tr>";
+                echo "<td>".$row['id']."</td>";
                 echo "<td>".$row['AdminID']."</td>";
                 echo "<td>".$row['email']."</td>";
+                echo "<td>".$row['password']."</td>";
                 echo "<td>".$row['Navn']."</td>";
+                echo "<td>".$row['status']."</td>";
+                echo "<td><a href=\"?delete_id={$row['id']}\"\>Delete row</a></td>";
         }
     ?>
 </div>
