@@ -45,7 +45,7 @@ if (!$_SESSION['logon']){  // Hvis log on er lik false gå til login side
     <div class="con">
         <div class="innhold">
         <?php
-        if (isset($_SESSION["Username"])){
+        if (isset($_SESSION["Username"])){ // Hvis session username er satt, skal følgende setning vises på siden.
             echo "<h1>Welcome " . $_SESSION["Username"] ."! </h1>";
         }
         ?>

@@ -52,7 +52,7 @@
     if(isset($_POST['save'])) { // Hvis button med navnet "save" har blitt trukket skal variablen "ok" bli satt til true.
         $ok = true;
 
-        if(!isset($_POST['AdminID']) || $_POST['AdminID'] == '') { // Deretter kjører vi if-statements som sjekker om inputfeltene AdminID, passord, email og navn ikke er satt eller tom, hvis det er det skal variablen "ok" settes til false ellers skal de ulike elementene bli satt i variablene de tilhører.
+        if(!isset($_POST['AdminID']) || $_POST['AdminID'] == '') { // Deretter kjører vi if-statements som sjekker om inputfeltene AdminID, password, email og navn ikke er satt eller tom, hvis det er det skal variablen "ok" settes til false ellers skal de ulike elementene bli satt i variablene de tilhører.
             $ok = false;
         } else {
             $_AdminID = $_POST['AdminID'];

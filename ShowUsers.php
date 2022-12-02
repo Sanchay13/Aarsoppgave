@@ -47,7 +47,7 @@
             exit();
         }
             
-        // Her er tabellen som skal vise alle produkter i databasen vår.
+        // Her er tabellen som skal vise alle feltene i databasen vår.
         echo "<table>
         <tr>
         <th>Id</th>
@@ -59,7 +59,7 @@
         <th>Delete</th>
         </tr>";
         
-        // Vi lager en foreach loop som gjør om variabelen resultat om til row. For hver gang et produkt blir lagt til vil foreach loopen gjøre at tabellen oppdateres.
+        // Vi lager en foreach loop som gjør om variabelen resultat om til row. For hver gang et bruker blir lagt til vil foreach loopen gjøre at tabellen oppdateres.
         foreach ($result as $row){
             echo "<tr>";
                 echo "<td>".$row['id']."</td>";
