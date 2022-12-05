@@ -33,28 +33,28 @@
             '',
             'kantine');
 
-            if(isset($_POST['Login'])){
-                $username = mysqli_real_escape_string($db, $_POST['username']);
+            if(isset($_POST['Login'])){ // Hvis login er trukket skal følgende kode kjøres: 
+                $username = mysqli_real_escape_string($db, $_POST['username']); // Hindrer sql injections
                 $password = mysqli_real_escape_string($db, $_POST['password']);
 
                 $sql = "SELECT * FROM admin WHERE AdminID = '$username';";
                 $result = mysqli_query($db, $sql);
-                if($result -> num_rows > 0){
+                if($result -> num_rows > 0){ // Hvis det er flere enn null rader skal følgende skje: 
                     while($row = $result -> fetch_assoc()){
-                        session_start();
+                        session_start(); // Starter session 
                         $Navn = $row['Navn'];
                         $dbPwd = $row['password'];
-                        $_SESSION['Username'] = $Navn;
-                        $checkedPwd = password_verify($password, $dbPwd);
-                        if ($checkedPwd === true){
+                        $_SESSION['Username'] = $Navn; // Lager session for brukernavn slik at jeg kan bruke dette senere.
+                        $checkedPwd = password_verify($password, $dbPwd); // Verifiserer hashed passord i input value med det som er lagret i databasen.
+                        if ($checkedPwd === true){ // Hvis passord er korrket skal følgende kode kjøres
                             $_SESSION['logon'] = true;
                             $admin = $row['status'];
-                        if($admin == 1){
+                        if($admin == 1){ // Hvis admin value er 1 skal den gå til bruker-administrasjonsiden 
                             header('Location: BossPage.php');
-                        } else if($admin == 0){
+                        } else if($admin == 0){ // Hvis den er 0 skal den til ansatte sin admin side.
                             header('Location: AdminForside.php');
                         }
-                        } else if($checkedPwd === false){
+                        } else if($checkedPwd === false){ // Hvis passordet er feil skal errormld dukke opp
                         ?>
                         <div class="errormld">
                         <p>Wrong username/password combination.</p>
@@ -66,23 +66,5 @@
             }
             ?>
             
-
-        <!-- //         $query = "SELECT * FROM admin WHERE AdminID='$username' AND password='$password'"; //Henter alt fra tabellen "admin" der adminID = username variablen og password er password variablen.
-        //         $results = mysqli_query($db, $query);
-
-        //         if (mysqli_num_rows($results) == 1) { // Hvis brukernavn og passord matcher det som er i databasen skal session starte og logon skal bli satt til true.
-        //             session_start();
-        //             $_SESSION['logon'] = true;
-        //             header('Location: AdminForside.php');
-        //             die();
-        //         }  else { // ellers skal følgende feilmelding dukke opp.
-        //             ?>
-        //             <div class="errormld">
-        //             <p>Wrong username/password combination. Forgotten password? Please contact the main administrator</p>
-        //         </div>
-        
-        //
-        //         } 
-        //     } -->
                     
 
