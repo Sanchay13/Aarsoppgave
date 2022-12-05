@@ -51,7 +51,7 @@
                             $admin = $row['status'];
                         if($admin == 1){
                             header('Location: BossPage.php');
-                        } else{
+                        } else if($admin == 0){
                             header('Location: AdminForside.php');
                         }
                         } else if($checkedPwd === false){
