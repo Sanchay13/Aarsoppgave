@@ -48,14 +48,14 @@ if (!$_SESSION['logon']){  // Hvis log on er lik false gå til login side
     echo "</div>";
     }
 
-        //     if (isset ($_GET['delete_id'])) { // En if-statement som sjekker om lenken delete_id er satt om det er det skal følgende kode kjøres:
-        //     $delete_id = (int) $_GET['delete_id']; // variabel som sender id til samme side i URL med parameter "delete id"
-        //     $deletesql = "DELETE FROM product WHERE id = '$delete_id'"; // Variabel som sletter id fra tabellen "product" i databasen hvor id er det sammen som den id i URL-en.
-        //     $deleteresult = $db->query($deletesql);
+            if (isset ($_GET['delete_id'])) { // En if-statement som sjekker om lenken delete_id er satt om det er det skal følgende kode kjøres:
+            $delete_id = (int) $_GET['delete_id']; // variabel som sender id til samme side i URL med parameter "delete id"
+            $deletesql = "DELETE FROM product WHERE id = '$delete_id'"; // Variabel som sletter id fra tabellen "product" i databasen hvor id er det sammen som den id i URL-en.
+            $deleteresult = $db->query($deletesql);
 
-        //     header("Location: ./VisAlleProdukter.php"); // Når delete-lenken blir trukket skal nett-siden refreshe, slik at den produkten som blir slettet skal bli borte fra siden. 
-        //     exit();
-        // }
+            header("Location: ./VisAlleProdukter.php"); // Når delete-lenken blir trukket skal nett-siden refreshe, slik at den produkten som blir slettet skal bli borte fra siden. 
+            exit();
+        }
 
     if ($queryResult > 0){ // if-statement som sier at hvis det er fler enn 0 rader, så skal følgende kode kjøres: 
         echo "<div id=\"Productlist1\">";
@@ -64,8 +64,8 @@ if (!$_SESSION['logon']){  // Hvis log on er lik false gå til login side
         echo "<th>Name</th>";
         echo "<th>Price</th>";
         echo "<th>Details</th>";
-        // echo "<th>Edit</th>";
-        // echo "<th>Delete</th>";
+        echo "<th>Edit</th>";
+        echo "<th>Delete</th>";
         echo "</tr>";
         
         while($row = mysqli_fetch_assoc($result)){ // en loop som vil fortsette til det er ingen flere rader i resultatet som er returnert fra Mysql databasen.
@@ -78,10 +78,10 @@ if (!$_SESSION['logon']){  // Hvis log on er lik false gå til login side
             echo "</td>";
             echo "<td>";
             echo $row['Detaljer'];
+            echo "<td><a href=\"edit.php?Edit={$row['ID']}\"\>Edit</a></td>";
+            echo "<td><a href=\"?delete_id={$row['ID']}\"\>Delete row</a></td>";
             echo "</td>";
             echo "</tr>";
-            // echo "<td><a href=\"edit.php?Edit={$row['ID']}\"\>Edit</a></td>";
-            // echo "<td><a href=\"?delete_id={$row['ID']}\"\>Delete row</a></td>";
         } 
         
         echo "</table>";
