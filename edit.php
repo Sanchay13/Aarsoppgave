@@ -21,7 +21,7 @@
         $Edit = '';
 
             $db = new mysqli( // Database connection
-                '10.2.2.183',
+                '100.11.10.2',
                 'root',
                 '',
                 'kantine');
