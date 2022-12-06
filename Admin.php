@@ -83,7 +83,7 @@
         }
         
         if($ok){ // Hvis variablen "ok" er true skal det lages en connection med databasen, der vi legger til nye elementene i mysql tabellen der AdminID, Password, email og Navn erstattes med de variablene som ble satt i koden ovenfor.
-            $host = "localhost";
+            $host = "10.2.2.183";
             $dbusername = "root";
             $dbpassword = "";
             $dbname = "kantine";

@@ -29,7 +29,7 @@ if (!$_SESSION['logon']){  // Hvis log on er lik false gå til login side
 }
 
     $db = new mysqli(  // Lager connection med databasen
-    'localhost',
+    '10.2.2.183',
     'root',
     '',
     'kantine');

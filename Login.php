@@ -28,7 +28,7 @@
 <?php
         
         $db = new mysqli(  // Lager connection med databasen
-            'localhost',
+            '10.2.2.183',
             'root',
             '',
             'kantine');
