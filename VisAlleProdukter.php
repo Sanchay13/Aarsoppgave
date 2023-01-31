@@ -29,11 +29,7 @@
             die();
         }
 
-        $db = new mysqli(  // Lager connection med databasen
-            '100.11.10.2',
-            'root',
-            '',
-            'kantine');
+        include_once 'connection.php';
 
         $sql = 'SELECT * FROM product'; // Vi sender sql-spørringer om å hente alt fra tabellen "product" i databasen.
         $result = $db->query($sql);

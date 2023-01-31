@@ -20,11 +20,7 @@
         $detaljer = '';
         $Edit = '';
 
-            $db = new mysqli( // Database connection
-                '100.11.10.2',
-                'root',
-                '',
-                'kantine');
+        include_once 'connection.php';
 
                 if (isset ($_GET['Edit'])) { // En if-statement som sjekker om lenken edit.php er satt om det er det skal følgende kode kjøres:
                     $Edit = (int) $_GET['Edit']; // variabel som sender id til ny side i URL med parameter "Edit"

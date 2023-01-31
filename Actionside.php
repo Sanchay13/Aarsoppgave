@@ -28,11 +28,7 @@ if (!$_SESSION['logon']){  // Hvis log on er lik false gå til login side
     die();
 }
 
-    $db = new mysqli(  // Lager connection med databasen
-    '100.11.10.2',
-    'root',
-    '',
-    'kantine');
+    include_once 'connection.php';
 
     $sql = 'SELECT * FROM product'; // Sql spørring som henter alt fra tabellen "product" i databasen
     $result = $db->query($sql);

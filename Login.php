@@ -27,11 +27,7 @@
 
 <?php
         
-        $db = new mysqli(  // Lager connection med databasen
-            '100.11.10.2',
-            'root',
-            '',
-            'kantine');
+        include_once 'connection.php';
 
             if(isset($_POST['Login'])){ // Hvis login er trukket skal følgende kode kjøres: 
                 $username = mysqli_real_escape_string($db, $_POST['username']); // Hindrer sql injections

@@ -70,12 +70,8 @@
         }
         
         if($ok){ // Hvis variablen "ok" er true skal det lages en connection med databasen, der vi legger til nye elementene i mysql tabellen der Navn, Pris og Detaljer erstattes med de variablene som ble satt i koden ovenfor.
-            $host = "100.11.10.2";
-            $dbusername = "root";
-            $dbpassword = "";
-            $dbname = "kantine";
 
-            $db = new mysqli($host, $dbusername, $dbpassword, $dbname);
+            include_once 'connection.php';
 
             $sql = "INSERT INTO product (Navn, Pris, Detaljer) VALUES ('$_name', '$_price', '$_productdetails');";
             
