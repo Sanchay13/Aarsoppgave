@@ -29,7 +29,6 @@
             <input class="Inputtext" placeholder="Email" type="email" name="Email" id="">
             <input class="Inputtext" placeholder="Navn" type="text" name="Navn" id="">
             <input class="Inputtext" placeholder="AdminValue" type="number" name="Value" id="">
-            
             <br>
             <input type="submit" id="submit" name="save" value="Save">
         </form>
