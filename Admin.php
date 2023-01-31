@@ -112,7 +112,7 @@
         } else { 
         ?>
         <div class="errormld"> <!--Hvis variablen "ok" er satt til false skal det komme følgende error melding.-->
-            <p>Error, user has not been saved. Be sure that all inputfields are filled and that you dont create a user with an existing AdminID!</p>
+            <p>Error, user has not been saved. Be sure that all inputfields are filled!</p>
         </div>
 
         <?php
