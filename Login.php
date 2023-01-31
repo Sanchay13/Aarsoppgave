@@ -35,6 +35,7 @@
 
                 $sql = "SELECT * FROM admin WHERE AdminID = '$username';";
                 $result = mysqli_query($db, $sql);
+                
                 if($result -> num_rows > 0){ // Hvis det er flere enn null rader skal følgende skje: 
                     while($row = $result -> fetch_assoc()){
                         session_start(); // Starter session 

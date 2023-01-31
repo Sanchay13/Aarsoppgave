@@ -1,3 +1,5 @@
+<?php include_once 'connection.php';?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +56,14 @@
         if(!isset($_POST['AdminID']) || $_POST['AdminID'] == '') { // Deretter kjører vi if-statements som sjekker om inputfeltene AdminID, password, email og navn ikke er satt eller tom, hvis det er det skal variablen "ok" settes til false ellers skal de ulike elementene bli satt i variablene de tilhører.
             $ok = false;
         } else {
-            $_AdminID = $_POST['AdminID'];
+            $adminDB = $_POST['AdminID'];
+            $sqlAdminID = "SELECT * FROM admin WHERE AdminID = '$adminDB';";
+            $resultAdminID = mysqli_query($db, $sqlAdminID);
+            if($resultAdminID->num_rows > 0){
+                $ok = false;
+            }else {
+                $_AdminID = $_POST['AdminID'];
+            }
         }
 
         if(!isset($_POST['password']) || $_POST['password'] == '') {
@@ -66,7 +75,14 @@
         if(!isset($_POST['Email']) || $_POST['Email'] == '') {
             $ok = false;
         } else {
-            $_email = $_POST['Email'];
+            $emailDB = $_POST['Email'];
+            $sqlEmail = "SELECT * FROM admin WHERE email = '$emailDB';";
+            $resultEmail = mysqli_query($db, $sqlEmail);
+            if($resultEmail->num_rows > 0){
+                $ok = false;
+            }else {
+                $_email = $_POST['Email'];
+            }
         }
 
         if(!isset($_POST['Navn']) || $_POST['Navn'] == '') {
@@ -82,7 +98,6 @@
         }
         
         if($ok){ // Hvis variablen "ok" er true skal det lages en connection med databasen, der vi legger til nye elementene i mysql tabellen der AdminID, Password, email og Navn erstattes med de variablene som ble satt i koden ovenfor.
-            include_once 'connection.php';
 
             $Hashedpwd = password_hash($_password, PASSWORD_DEFAULT);
 
@@ -97,7 +112,7 @@
         } else { 
         ?>
         <div class="errormld"> <!--Hvis variablen "ok" er satt til false skal det komme følgende error melding.-->
-            <p>Error, user has not been saved. Be sure that all inputfields are filled!</p>
+            <p>Error, user has not been saved. Be sure that all inputfields are filled and that you dont create a user with an existing AdminID!</p>
         </div>
 
         <?php
