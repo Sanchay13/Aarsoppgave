@@ -112,7 +112,7 @@
         } else { 
         ?>
         <div class="errormld"> <!--Hvis variablen "ok" er satt til false skal det komme følgende error melding.-->
-            <p>Error, user has not been saved. Be sure that all inputfields are filled!</p>
+            <p>Error, user has not been saved!</p>
         </div>
 
         <?php
