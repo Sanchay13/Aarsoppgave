@@ -44,6 +44,7 @@
                         $_SESSION['Username'] = $Navn; // Lager session for brukernavn slik at jeg kan bruke dette senere.
                         $checkedPwd = password_verify($password, $dbPwd); // Verifiserer hashed passord i input value med det som er lagret i databasen.
                         if ($checkedPwd === true){ // Hvis passord er korrket skal følgende kode kjøres
+                            mysqli_query($db, "UPDATE admin SET LastLogin = CURRENT_TIMESTAMP() WHERE AdminID='$username';");
                             $_SESSION['logon'] = true;
                             $admin = $row['status'];
                         if($admin == 1){ // Hvis admin value er 1 skal den gå til bruker-administrasjonsiden 

@@ -53,6 +53,7 @@
         <th>Navn</th>
         <th>Status</th>
         <th>Delete</th>
+        <th>Last login</th>
         </tr>";
         
         // Vi lager en foreach loop som gjør om variabelen resultat om til row. For hver gang et bruker blir lagt til vil foreach loopen gjøre at tabellen oppdateres.
@@ -65,6 +66,7 @@
                 echo "<td>".$row['Navn']."</td>";
                 echo "<td>".$row['status']."</td>";
                 echo "<td><a href=\"?delete_id={$row['id']}\"\>Delete row</a></td>";
+                echo "<td>".$row['LastLogin']."</td>";
         }
     ?>
 </div>
