@@ -10,17 +10,7 @@
     <title>Add admin</title>
 </head>
 <body>
-<nav>
-        <div class="container">
-        <h1>Kuben kantine</h1>
-
-        <div class="menu">
-            <a href="BossPage.php">Home</a>
-            <a href="Admin.php">Add-users</a>
-            <a href="ShowUsers.php">All-users</a>
-            <a href="logut.php">Log out</a>
-        </div>
-</nav>
+<?php include_once 'headerUser-Admin.php'; ?>
         
     <div class="Input">
         <h1>Add Admin-user:</h1>

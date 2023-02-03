@@ -8,18 +8,6 @@
     <title>Show products</title>
 </head>
 <body>
-<nav>
-        <div class="container">
-        <h1>Kuben kantine</h1>
-
-        <div class="menu">
-            <a href="AdminForside.php">Home</a>
-            <a href="VisAlleProdukter.php">Show products</a>
-            <a href="SearchProducts.php">Search products</a>
-            <a href="LeggTilProdukt.php">Add products</a>
-            <a href="logut.php">Log out</a>
-        </div>
-</nav>
 
 <div id="Productlist">
     <?php
@@ -28,6 +16,8 @@
             header("Location:Login.php");
             die();
         }
+
+        include_once 'headerAnsatt.php';
 
         include_once 'connection.php';
 

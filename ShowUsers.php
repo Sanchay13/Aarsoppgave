@@ -8,19 +8,6 @@
     <title>Show all admin-users</title>
 </head>
 <body>
-<nav>
-        <div class="container">
-        <h1>Kuben kantine</h1>
-
-        <div class="menu">
-            <a href="BossPage.php">Home</a>
-            <a href="Admin.php">Add-users</a>
-            <a href="ShowUsers.php">All-users</a>
-            <a href="logut.php">Log out</a>
-        </div>
-</nav>
-
-
 <div id="Productlist">
     <?php
         session_start();
@@ -28,6 +15,8 @@
             header("Location:Login.php");
             die();
         }
+
+        include_once 'headerUser-Admin.php';
 
         include_once 'connection.php';
 
