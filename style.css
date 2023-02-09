@@ -270,3 +270,38 @@ text-align: center;
 margin-top: 10%;
 font-size: 30px;
 }
+
+.title{
+    font-size: 50px;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 10%;
+    text-decoration: none;
+}
+
+.quest-con{
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.question{
+    width: 100%;
+    background-color: #8c38ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15px;
+    border: none;
+    font-size: 22px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.question-content{
+    display: none;
+}
+
+.active:after{
+    content: "\2212";
+}
