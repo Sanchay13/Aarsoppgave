@@ -16,7 +16,7 @@
     <div class="quest-con">
         
         <button class="question">
-                <span>hei</span>
+                <span>How to add users?</span>
         </button>
 
         <div class="question-content">
@@ -24,7 +24,7 @@
         </div>
 
         <button class="question">
-            <span>sds</span>
+            <span>How to edit an existing product?</span>
         </button>
         
         <div class="question-content">
@@ -32,6 +32,25 @@
         </div>
     </div>
 </section>
+
+<div class="arrowIMG">
+    <a href="#Input">
+    <img src="Årsoppgave_Bilde/arrow.png" alt="">
+    </a>
+</div>
+
+
+    <div id="Input">
+        <h1>Send questions:</h1>
+        <br>
+        <form action="" method="post" autocomplete="off">
+            <textarea class="Inputtext" placeholder="Question" type="text" name="Question" id=""></textarea>
+            <br>
+            <input type="submit" id="submit" name="send" value="Send">
+        </form>
+    </div>
+
+    <br><br><br>
 
 </body>
 <script src="script.js"></script>
