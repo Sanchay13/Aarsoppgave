@@ -23,9 +23,9 @@
         $sql = 'SELECT * FROM faq';
         $result = $db->query($sql);
 
-        if (isset ($_GET['Delete'])) {
+        if(isset ($_GET['Delete'])) {
             $delete_id = (int) $_GET['Delete']; 
-            $deletesql = "DELETE FROM faq WHERE Question = '$delete_id'"; 
+            $deletesql = "DELETE FROM faq WHERE id = '$delete_id'"; 
             $deleteresult = $db->query($deletesql);
 
             header("Location: ./AdminFaq.php");

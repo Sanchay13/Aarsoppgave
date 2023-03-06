@@ -23,7 +23,7 @@
         include_once 'connection.php';
 
         if(isset ($_GET['Edit'])) { 
-        $Edit = (int) $_GET['Edit']; 
+        $Edit = $_GET['Edit']; 
         $sql = "SELECT * FROM faq WHERE id = '$Edit'"; 
         $result = $db->query($sql);
 
@@ -39,16 +39,16 @@
     if(isset($_POST['display'])) {
         $ok = true;
             
-        if(!isset($_POST['Question']) || $_POST['Question'] == '') {
+        if(!isset($_POST['Quest']) || $_POST['Quest'] == '') {
         $ok = false;
         } else {
-        $question = $_POST['Question'];
+        $question = $_POST['Quest'];
         }
         
-        if(!isset($_POST['Answer']) || $_POST['Answer'] == '') {
+        if(!isset($_POST['Answ']) || $_POST['Answ'] == '') {
         $ok = false;
         } else {
-        $answer = $_POST['Answer'];
+        $answer = $_POST['Answ'];
         }
 
         $sql = "UPDATE faq SET Question = '$question', Answer = '$answer'  WHERE id = '$Edit'";
@@ -64,8 +64,8 @@
         <h1>Edit Question:</h1>
         <br>
         <form action="" method="post" autocomplete="off">
-            <textarea class="Inputtext" type="text" id=""><?php echo $question; ?></textarea>
-            <textarea class="Inputtext" placeholder="Answer..." type="text" id=""><?php echo $answer; ?></textarea>
+            <textarea class="Inputtext" type="text" name="Quest" id=""><?php echo $question; ?></textarea>
+            <textarea class="Inputtext" placeholder="Answer..." name="Answ" type="text" id=""><?php echo $answer; ?></textarea>
             <br>
             <input type="submit" id="submit" name="display" value="Display">
         </form>
