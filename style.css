@@ -317,6 +317,7 @@ font-size: 30px;
 
 .question-content p{
     font-weight: bold;
+    margin-top: 2%;
     color:#fff;
     height: 10vh;
     z-index: 2;
