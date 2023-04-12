@@ -10,6 +10,21 @@
 <body>
 <?php include_once 'headerAnsatt.php'; ?>
 
+<?php
+    include_once 'connection.php';
+
+    $sql = "SELECT * FROM faq;";
+    $result1 = mysqli_query($db, $sql);
+    if($result1 -> num_rows > 0){
+    while($row = $result1->fetch_assoc()){
+        $Question = $row['Question'];
+        echo $Question;
+
+        $Answer = $row['Answer'];
+        echo $Answer;
+    }
+    }
+?>
 <section>
     <h1 class="title">FAQ's</h1>
 

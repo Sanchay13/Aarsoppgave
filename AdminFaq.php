@@ -36,6 +36,7 @@
         <tr>
         <th>Question</th>
         <th>Answer</th>
+        <th>Display</th>
         <th>Edit</th>
         <th>Delete</th>
         </tr>";
@@ -44,6 +45,7 @@
             echo "<tr>";
                 echo "<td>".$row['Question']."</td>";
                 echo "<td>".$row['Answer']."</td>";
+                echo "<td>".$row['Display']."</td>";
                 echo "<td><a href=\"editfaq.php?Edit={$row['id']}\"\>Edit</a></td>";
                 echo "<td><a href=\"?Delete={$row['id']}\"\>Delete row</a></td>";
         }

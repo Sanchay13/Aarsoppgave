@@ -19,6 +19,7 @@
 
         $question = ''; 
         $answer = ''; 
+        $display = '';
 
         include_once 'connection.php';
 
@@ -30,9 +31,11 @@
         foreach ($result as $row){
         $question = $row['Question'];
         $answer = $row['Answer'];
+        $display = $row['Display'];
 
         echo $row['Question'];
         echo $row['Answer'];
+        echo $row['Display'];
         }
         }
 
@@ -51,7 +54,13 @@
         $answer = $_POST['Answ'];
         }
 
-        $sql = "UPDATE faq SET Question = '$question', Answer = '$answer'  WHERE id = '$Edit'";
+        if(!isset($_POST['Disp']) || $_POST['Disp'] == '') {
+        $ok = false;
+        } else {
+        $display = $_POST['Disp'];
+        }
+
+        $sql = "UPDATE faq SET Question = '$question', Answer = '$answer', Display = '$display'  WHERE id = '$Edit'";
         $result = $db->query($sql);
 
         header("Location: ./AdminFaq.php");
@@ -66,6 +75,7 @@
         <form action="" method="post" autocomplete="off">
             <textarea class="Inputtext" type="text" name="Quest" id=""><?php echo $question; ?></textarea>
             <textarea class="Inputtext" placeholder="Answer..." name="Answ" type="text" id=""><?php echo $answer; ?></textarea>
+            <textarea class="Inputtext" placeholder="Display" name="Disp" type="text" id=""><?php echo $display; ?></textarea>
             <br>
             <input type="submit" id="submit" name="display" value="Display">
         </form>
