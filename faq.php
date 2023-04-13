@@ -14,9 +14,9 @@
     include_once 'connection.php';
 
     $sql = "SELECT * FROM faq;";
-    $result1 = mysqli_query($db, $sql);
-    if($result1 -> num_rows > 0){
-    while($row = $result1->fetch_assoc()){
+    $result = mysqli_query($db, $sql);
+    if($result -> num_rows > 0){
+    while($row = $result->fetch_assoc()){
         $Question = $row['Question'];
         echo $Question;
 
