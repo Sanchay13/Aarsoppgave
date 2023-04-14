@@ -12,39 +12,30 @@
 
 <?php
     include_once 'connection.php';
-
-    $sql = "SELECT * FROM faq;";
-    $result = mysqli_query($db, $sql);
-    if($result -> num_rows > 0){
-    while($row = $result->fetch_assoc()){
-        $Question = $row['Question'];
-        echo $Question;
-
-        $Answer = $row['Answer'];
-        echo $Answer;
-    }
-    }
 ?>
+
+<button type></button>
 <section>
     <h1 class="title">FAQ's</h1>
 
     <div class="quest-con">
         
-        <button class="question">
-                <span>How to add users?</span>
-        </button>
-
-        <div class="question-content">
-            <p>heisan</p>
-        </div>
-
-        <button class="question">
-            <span>How to edit an existing product?</span>
-        </button>
-        
-        <div class="question-content">
-            <p>heisan</p>
-        </div>
+    <?php
+        $sql = "SELECT * FROM faq;";
+        $result = mysqli_query($db, $sql);
+        if($result -> num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                if ($row['Display'] === "y") {
+                    echo "
+                    <button class='question'><span>".$row['Question']."</span></button>
+                    <div class='question-content'>
+                    <p>".$row['Answer']."</p>
+                    </div>
+                    ";
+                }
+            }
+        }
+    ?>
     </div>
 </section>
 
