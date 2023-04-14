@@ -14,7 +14,7 @@
     include_once 'connection.php';
 ?>
 
-<button type></button>
+
 <section>
     <h1 class="title">FAQ's</h1>
 
