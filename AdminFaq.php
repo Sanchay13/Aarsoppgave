@@ -36,7 +36,7 @@
         <tr>
         <th>Question</th>
         <th>Answer</th>
-        <th>Display</th>
+        <th>Display y/n</th>
         <th>Edit</th>
         <th>Delete</th>
         </tr>";
