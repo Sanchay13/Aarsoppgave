@@ -24,7 +24,6 @@
             <br>
             <input type="submit" id="submit" name="save" value="Save">
         </form>
-        <div>simen</div>
     </div>
 
 
