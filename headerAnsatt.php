@@ -8,6 +8,7 @@
             <a href="SearchProducts.php">Search products</a>
             <a href="LeggTilProdukt.php">Add products</a>
             <a href="faq.php">FAQ</a>
+            <a href="Quiz.php">Quiz</a>
             <a href="logut.php">Log out</a>
         </div>
 </nav>
